@@ -1,0 +1,343 @@
+/**********************************/
+/*=========     GLOBAL   =========*/
+/**********************************/
+
+.wrapper
+	width: 97%
+	max-width: $main-width*1px
+	margin: auto
+//estaria en el header pero por convencion va en el global
+.red-button
+	display: block
+	font-size: 14px
+	margin: 25px auto 0
+	background-color: $main-color
+	color: #fff
+	text-align: center
+	padding: 15px
+	max-width: 85%
+	+b-ra(5px)
+	+b-sh(0,0,8px,#000)
+
+	&:hover
+		background-color: darken($main-color,20)
+
+.subtitle
+	text-align: center
+	font-family: $second-font
+	font-size: 24px
+	margin-top: 0
+	+ p
+		color: darken($third-color,40)
+		text-align: center
+		font-size: 15px
+		padding: 0 15px
+
+.separator
+	margin: auto
+	height: 3px
+	background-color: $comp-color
+	width: 45px
+	//regla para darle estilo al .separator que está dentro del <form>
+	// ver línea 262 en el index.html (<div class="separator left-align"></div>)
+	&.left-align
+		margin-left: 0
+		margin-right: 0
+
+//extend
+%contenedores
+	padding: 70px 0
+
+#we-do
+	@extend %contenedores 
+	//mas reglas para el contenido interno de este elemento
+
+#our-projects
+	@extend %contenedores
+
+#clients
+	@extend %contenedores
+
+/**********************************/
+/*=========     HEADER   =========*/
+/**********************************/
+
+header 
+	padding: 15px 
+.logo
+	display: inline-block
+	max-width: 125px
+
+#toggle
+	display: none
+	//oculta el checkbox pero no le quita el funcionamiento
+	&:checked ~ nav
+		width: 100%
+
+.toggle-button
+	float: right
+	margin-top: 15px
+
+nav
+	position: fixed  
+	left: 0
+	top: 0
+	background-color: $comp-color
+	width: 0
+	//para que la transicion ocurra, apareciendo
+	height: 100vh
+	overflow: hidden
+	//oculta el contenido que se sale de la caja para que no se vea superpuesto el menu
+	+ttion(500ms)
+	li
+		color: #fff
+		border-bottom: solid 1px #fff
+		position: relative
+		label
+			position: absolute
+			right: 15px
+			top: 15px
+	a
+		display: block
+		font-size: 15px
+		padding: 15px
+
+/**********************************/
+/*=========     BANNER   =========*/
+/**********************************/
+
+.banner
+	min-height: 550px
+	background: url(../images/bg-banner.jpg) center center
+	text-align: center
+	padding-top: 150px
+	color: #fff
+	h1
+		font-family: $second-font
+		font-weight: 400
+		font-size: 30px
+		margin: 0
+	p
+		font-size: 15px
+		margin: 10px 0
+
+/***************************************/
+/*=========     WHAT-WE-DO    =========*/
+/***************************************/
+
+.services
+	article
+		margin: 40px 5% 0
+		position: relative
+
+.red-ball
+	width: 60px
+	height: 60px
+	display: block
+	background-color: $main-color
+	text-align: center
+	line-height: 60px
+	+b-ra(50%)
+	color: #fff
+	font-size: 22px
+	position: absolute
+	left: 0
+	top: 0
+
+.service-text
+	padding-left: 70px
+	h2
+		margin-top: 0
+		font-size: 19px
+	p
+		color: $comp-color
+		font-size: 15px
+
+/*****************************************/
+/*=========     OUR-PROJECTS    =========*/
+/*****************************************/
+
+#our-projects
+	background-color: lighten($third-color,30)
+
+.project-list
+	figure
+		margin: 40px 5% 0
+		+b-sh(0,0,10px,#333)
+		+b-ra(10px)
+		overflow: hidden
+		//para que la imagen no se salga del contenedor y se vea el border radius
+		position: relative
+		div
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			+ttion(600ms)
+			&:hover
+				background-color: (0,0,0,0.5)
+				span
+					+scale(1)
+			span
+				width: 40px
+				height: 40px
+				background-color: $main-color
+				text-align: center
+				line-height: 40px
+				color: #fff
+				+b-ra(50%)
+				//ya tiene el posicionamiento del padre aunque este sea otro absoluto y lo toma como relativo
+				position: absolute
+				top: 50%
+				left: 50%
+				//corregir la posicion del icono porque en ese centro recien empieza y no queda centrado
+				margin: -20px
+				//la mitad del tamaño
+				+scale(0)
+				+ttion(600ms)
+
+/*******************************************/
+/*=========     CALL-TO-ACTION    =========*/
+/*******************************************/
+//no puede tener nada anidado @extend
+.call-to-action
+	@extend %contenedores
+	background: url(../images/bg-data-contact.jpg) center top/cover no-repeat
+	h3
+		margin: 0
+		color: #fff
+		padding: 0 30px
+		font: 400 24px $second-font
+		text-align: center
+		span
+			color: $main-color
+			display: block
+			text-shadow: 0 0 3px #000
+
+/************************************/
+/*=========     CLIENTS    =========*/
+/************************************/
+.testimonies
+	article
+		margin: 40px 5% 0
+		p
+			padding: 25px
+			font-size: 15px
+			color: #333
+			margin: 0 0 10px
+			+b-ra(5px)
+			+b-sh(0,0,5px,rgba(0,0,0,0.5))
+		b
+			font-size: 15px
+			color: #333
+			i
+				color: $main-color
+				font-style: normal
+
+/*****************************************/
+/*=========     SOCIAL-LINKS    =========*/
+/*****************************************/
+.social-links
+	text-align: center
+	li
+		display: inline-block
+		margin: 15px
+		color: #fff
+		span
+			display: block
+			width: 50px
+			height: 50px
+			line-height: 50px
+			font-size: 18px
+			text-align: center
+			margin: 0 auto 5px
+			vertical-align: top
+			+b-ra(50%)
+			+ttion(500ms)
+		i
+			font-style: normal
+			font-size: 14px
+
+		// en rollover sobre <li>
+		&:hover
+			span
+				background-color: $main-color
+				+b-sh(0,0,5px,#fff)
+
+/************************************/
+/*=========     CONTACT    =========*/
+/************************************/
+#contact
+	background-color: $third-color
+	margin-top: 70px
+	form
+		padding: 50px 30px
+
+		//anidamiento especifico para el form de contact
+		.subtitle
+			text-align: left
+			+ p
+				text-align: left
+				padding: 0
+
+		input, textarea
+			display: block
+			width: 100%
+			height: 50px
+			font-size: 16px
+			margin-top: 20px
+			background-color: transparent
+			border-bottom: solid 2px #ddd
+			color: #333
+			+ttion(300ms)
+			&:focus
+				border-bottom-color: $main-color
+				color: $main-color
+
+		textarea
+			height: 120px
+			min-height: 120px
+			resize: vertical
+			overflow: hidden
+
+		//.red-button dentro del form de contact		
+		.red-button
+			font-size: 16px
+			margin: 20px 0 0
+			padding: 10px
+
+.map
+	position: relative
+	height: 300px
+
+	//insertar contenido externo
+	iframe
+		display: block
+		width: 100%
+		height: 100%
+		border: none
+
+	// este div está sobre el iframe y cumple la función de 
+	//evitar el "zoom-in" y "zoom-out" del google map
+	div
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 85%
+
+/***********************************/
+/*=========     FOOTER    =========*/
+/***********************************/
+footer
+	@extend %contenedores
+	border-top: solid 2px $third-color
+	text-align: center
+	p
+		color: #333
+		em
+			color: $main-color
+			font-style: normal
+	a
+		font-size: 14px

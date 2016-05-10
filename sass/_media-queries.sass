@@ -1,0 +1,63 @@
+/******************************************/
+/*=========     MEDIA-QUERIES    =========*/
+/******************************************/
+
+//Mobile First
+// versión SM
+@media (min-width: 560px)
+	.red-button
+		display: inline-block	
+
+	.project-list
+		+clear-fix
+		figure
+			float: left
+			margin: 40px 2.5% 0
+			width: 45%
+		
+// versión MD
+@media (min-width: 800px)
+	.red-button
+		font-size: 18px
+
+	.separator
+		display: none
+
+	.banner 
+		h1
+			font-size: 45px
+		p
+			font-size: 20px
+
+	.services
+		+clear-fix
+		article
+			float: left
+			margin: 40px 2.5% 0
+			width: 43%
+	
+// versión LG
+@media (min-width: 1100px)
+	.project-list
+		figure
+			margin: 40px 1.5% 0
+			width: 22%
+
+	.testimonies
+		+clear-fix
+		article
+			float: left
+			margin: 40px 2.5% 0
+			width: 28%
+
+	#contact
+		+clear-fix
+		form
+			width: 50%
+			float: right
+
+	.map
+		display: inline-block
+		width: 50%
+		iframe
+			height: 590px
